@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Title</title>
+    </head>
+    <body>
+
+
+
+        <div th:each="emp : ${employees}">
+            <h2 th:text="${emp.name}"></h2>
+            <h6 th:inline="text">identified by [[${emp.ssn}]]</h6>
+
+            <ul>
+                <th:block th:object="${emp.laptop}">
+                    <li th:inline="text">
+                        Has been Assigned to a <b> [[*{brand}]]</b> [[*{model}]].
+                    </li>
+                </th:block>
+            </ul>
+        </div>
+
+
+    </body>
+</html>
